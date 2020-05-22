@@ -3,7 +3,7 @@
 <p align="center">Instagram clone with backend, frontend and mobile using Node.js, React and React Native</p>
 
 <p align="center">
-  <video src="./src/assets/instaclone.gif"></video>
+  <img alt="Instaclone demo" src="./src/assets/instaclone.gif" />
 </p>
 
 ## :computer: Technologies
