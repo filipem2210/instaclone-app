@@ -32,6 +32,8 @@ const validationSchema = Yup.object().shape({
 
 const ProfileStack = createStackNavigator();
 
+import {REACT_APP_API_URL} from 'react-native-dotenv';
+
 function Profile() {
   const {user, signOut, error} = useAuth();
 
@@ -97,7 +99,7 @@ function Profile() {
       {!avatarPreview ? (
         <ImagePreview
           source={{
-            uri: `http://10.0.2.2:3333/api/static/images/avatar/${user.avatar}`,
+            uri: `${REACT_APP_API_URL}/static/images/avatar/${user.avatar}`,
           }}
         />
       ) : (

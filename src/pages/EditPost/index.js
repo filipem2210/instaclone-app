@@ -20,6 +20,8 @@ const validationSchema = Yup.object().shape({
   hashtags: Yup.string(),
 });
 
+import {REACT_APP_API_URL} from 'react-native-dotenv';
+
 export default function EditPost({route, navigation}) {
   const {postId, postImage, place, description, hashtags} = route.params;
 
@@ -49,7 +51,7 @@ export default function EditPost({route, navigation}) {
       {postImage && (
         <ImagePreview
           source={{
-            uri: `http://10.0.2.2:3333/api/static/images/post/${postImage}`,
+            uri: `${REACT_APP_API_URL}/static/images/post/${postImage}`,
           }}
         />
       )}

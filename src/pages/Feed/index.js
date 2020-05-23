@@ -63,6 +63,8 @@ const imagePickerOptions = {
   },
 };
 
+import {REACT_APP_API_URL, REACT_APP_SOCKET_IO_URL} from 'react-native-dotenv';
+
 function Feed({navigation}) {
   const [feed, setFeed] = useState([]);
   const [loggedUser, setLoggedUser] = useState([]);
@@ -137,7 +139,7 @@ function Feed({navigation}) {
   }
 
   const registerToSocket = useCallback(() => {
-    const socket = io('http://10.0.2.2:3333');
+    const socket = io(`${REACT_APP_SOCKET_IO_URL}`);
 
     socket.on('post', newPost => {
       setFeed(prevFeed => {
@@ -187,7 +189,7 @@ function Feed({navigation}) {
               <PostInfo>
                 <AvatarImage
                   source={{
-                    uri: `http://10.0.2.2:3333/api/static/images/avatar/${
+                    uri: `${REACT_APP_API_URL}/static/images/avatar/${
                       post.user.avatar
                     }`,
                   }}
@@ -224,9 +226,7 @@ function Feed({navigation}) {
             <TouchableWithoutFeedback onPress={() => handleDoubleTap(post.id)}>
               <PostImage
                 source={{
-                  uri: `http://10.0.2.2:3333/api/static/images/post/${
-                    post.image
-                  }`,
+                  uri: `${REACT_APP_API_URL}/static/images/post/${post.image}`,
                 }}
               />
             </TouchableWithoutFeedback>
